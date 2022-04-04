@@ -1,0 +1,190 @@
+{
+  "version": "16.0.0",
+  "artifacts": {
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    },
+    "RmsVpcStack.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "RmsVpcStack.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "RmsVpcStack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://620228650709/me-south-1",
+      "properties": {
+        "templateFile": "RmsVpcStack.template.json",
+        "tags": {
+          "cost-center": "8998",
+          "department": "Information-technology",
+          "workload-name": "rms-webserver-prod"
+        },
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::620228650709:role/cdk-hnb659fds-deploy-role-620228650709-me-south-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::620228650709:role/cdk-hnb659fds-cfn-exec-role-620228650709-me-south-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-620228650709-me-south-1/0aafd7dd66d34ce44f0fe5a0b07acb1858a870d079f51cfabf005f99c9565ffa.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "RmsVpcStack.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::620228650709:role/cdk-hnb659fds-lookup-role-620228650709-me-south-1",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "RmsVpcStack.assets"
+      ],
+      "metadata": {
+        "/RmsVpcStack": [
+          {
+            "type": "aws:cdk:stack-tags",
+            "data": [
+              {
+                "Key": "cost-center",
+                "Value": "8998"
+              },
+              {
+                "Key": "department",
+                "Value": "Information-technology"
+              },
+              {
+                "Key": "workload-name",
+                "Value": "rms-webserver-prod"
+              }
+            ]
+          }
+        ],
+        "/RmsVpcStack/RMS_VPC/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RMSVPC1E3921C7"
+          }
+        ],
+        "/RmsVpcStack/RMS_VPC/Subnet1PublicSubnet1/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RMSVPCSubnet1PublicSubnet1SubnetAC6F0797"
+          }
+        ],
+        "/RmsVpcStack/RMS_VPC/Subnet1PublicSubnet1/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RMSVPCSubnet1PublicSubnet1RouteTable55807235"
+          }
+        ],
+        "/RmsVpcStack/RMS_VPC/Subnet1PublicSubnet1/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RMSVPCSubnet1PublicSubnet1RouteTableAssociation2D90E207"
+          }
+        ],
+        "/RmsVpcStack/RMS_VPC/Subnet1PublicSubnet1/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RMSVPCSubnet1PublicSubnet1DefaultRoute497B2C81"
+          }
+        ],
+        "/RmsVpcStack/RMS_VPC/Subnet1PublicSubnet2/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RMSVPCSubnet1PublicSubnet2SubnetD78A41E0"
+          }
+        ],
+        "/RmsVpcStack/RMS_VPC/Subnet1PublicSubnet2/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RMSVPCSubnet1PublicSubnet2RouteTable18BFD7A3"
+          }
+        ],
+        "/RmsVpcStack/RMS_VPC/Subnet1PublicSubnet2/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RMSVPCSubnet1PublicSubnet2RouteTableAssociationA02823E1"
+          }
+        ],
+        "/RmsVpcStack/RMS_VPC/Subnet1PublicSubnet2/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RMSVPCSubnet1PublicSubnet2DefaultRouteCB46E98B"
+          }
+        ],
+        "/RmsVpcStack/RMS_VPC/Subnet2PrivateSubnet1/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RMSVPCSubnet2PrivateSubnet1Subnet8E6BBBAE"
+          }
+        ],
+        "/RmsVpcStack/RMS_VPC/Subnet2PrivateSubnet1/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RMSVPCSubnet2PrivateSubnet1RouteTable9EF35DA6"
+          }
+        ],
+        "/RmsVpcStack/RMS_VPC/Subnet2PrivateSubnet1/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RMSVPCSubnet2PrivateSubnet1RouteTableAssociationB5C4BDC8"
+          }
+        ],
+        "/RmsVpcStack/RMS_VPC/Subnet2PrivateSubnet2/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RMSVPCSubnet2PrivateSubnet2SubnetE31E57BC"
+          }
+        ],
+        "/RmsVpcStack/RMS_VPC/Subnet2PrivateSubnet2/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RMSVPCSubnet2PrivateSubnet2RouteTable6931C23C"
+          }
+        ],
+        "/RmsVpcStack/RMS_VPC/Subnet2PrivateSubnet2/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RMSVPCSubnet2PrivateSubnet2RouteTableAssociationAE176F34"
+          }
+        ],
+        "/RmsVpcStack/RMS_VPC/IGW": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RMSVPCIGW85CAD98E"
+          }
+        ],
+        "/RmsVpcStack/RMS_VPC/VPCGW": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RMSVPCVPCGWEA4B4A54"
+          }
+        ],
+        "/RmsVpcStack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/RmsVpcStack/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/RmsVpcStack/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "RmsVpcStack"
+    }
+  }
+}

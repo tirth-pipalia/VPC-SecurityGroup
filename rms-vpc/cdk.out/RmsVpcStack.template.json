@@ -1,0 +1,365 @@
+{
+  "Resources": {
+    "RMSVPC1E3921C7": {
+      "Type": "AWS::EC2::VPC",
+      "Properties": {
+        "CidrBlock": "10.0.0.0/16",
+        "EnableDnsHostnames": true,
+        "EnableDnsSupport": true,
+        "InstanceTenancy": "default",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "rms-prod-vpc"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "RmsVpcStack/RMS_VPC/Resource"
+      }
+    },
+    "RMSVPCSubnet1PublicSubnet1SubnetAC6F0797": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "10.0.0.0/24",
+        "VpcId": {
+          "Ref": "RMSVPC1E3921C7"
+        },
+        "AvailabilityZone": "me-south-1a",
+        "MapPublicIpOnLaunch": true,
+        "Tags": [
+          {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Subnet1Public"
+          },
+          {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public"
+          },
+          {
+            "Key": "Name",
+            "Value": "RmsVpcStack/RMS_VPC/Subnet1PublicSubnet1"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "RmsVpcStack/RMS_VPC/Subnet1PublicSubnet1/Subnet"
+      }
+    },
+    "RMSVPCSubnet1PublicSubnet1RouteTable55807235": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "RMSVPC1E3921C7"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "RmsVpcStack/RMS_VPC/Subnet1PublicSubnet1"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "RmsVpcStack/RMS_VPC/Subnet1PublicSubnet1/RouteTable"
+      }
+    },
+    "RMSVPCSubnet1PublicSubnet1RouteTableAssociation2D90E207": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "RMSVPCSubnet1PublicSubnet1RouteTable55807235"
+        },
+        "SubnetId": {
+          "Ref": "RMSVPCSubnet1PublicSubnet1SubnetAC6F0797"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "RmsVpcStack/RMS_VPC/Subnet1PublicSubnet1/RouteTableAssociation"
+      }
+    },
+    "RMSVPCSubnet1PublicSubnet1DefaultRoute497B2C81": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "RMSVPCSubnet1PublicSubnet1RouteTable55807235"
+        },
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": {
+          "Ref": "RMSVPCIGW85CAD98E"
+        }
+      },
+      "DependsOn": [
+        "RMSVPCVPCGWEA4B4A54"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "RmsVpcStack/RMS_VPC/Subnet1PublicSubnet1/DefaultRoute"
+      }
+    },
+    "RMSVPCSubnet1PublicSubnet2SubnetD78A41E0": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "10.0.1.0/24",
+        "VpcId": {
+          "Ref": "RMSVPC1E3921C7"
+        },
+        "AvailabilityZone": "me-south-1b",
+        "MapPublicIpOnLaunch": true,
+        "Tags": [
+          {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Subnet1Public"
+          },
+          {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public"
+          },
+          {
+            "Key": "Name",
+            "Value": "RmsVpcStack/RMS_VPC/Subnet1PublicSubnet2"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "RmsVpcStack/RMS_VPC/Subnet1PublicSubnet2/Subnet"
+      }
+    },
+    "RMSVPCSubnet1PublicSubnet2RouteTable18BFD7A3": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "RMSVPC1E3921C7"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "RmsVpcStack/RMS_VPC/Subnet1PublicSubnet2"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "RmsVpcStack/RMS_VPC/Subnet1PublicSubnet2/RouteTable"
+      }
+    },
+    "RMSVPCSubnet1PublicSubnet2RouteTableAssociationA02823E1": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "RMSVPCSubnet1PublicSubnet2RouteTable18BFD7A3"
+        },
+        "SubnetId": {
+          "Ref": "RMSVPCSubnet1PublicSubnet2SubnetD78A41E0"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "RmsVpcStack/RMS_VPC/Subnet1PublicSubnet2/RouteTableAssociation"
+      }
+    },
+    "RMSVPCSubnet1PublicSubnet2DefaultRouteCB46E98B": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "RMSVPCSubnet1PublicSubnet2RouteTable18BFD7A3"
+        },
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": {
+          "Ref": "RMSVPCIGW85CAD98E"
+        }
+      },
+      "DependsOn": [
+        "RMSVPCVPCGWEA4B4A54"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "RmsVpcStack/RMS_VPC/Subnet1PublicSubnet2/DefaultRoute"
+      }
+    },
+    "RMSVPCSubnet2PrivateSubnet1Subnet8E6BBBAE": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "10.0.2.0/24",
+        "VpcId": {
+          "Ref": "RMSVPC1E3921C7"
+        },
+        "AvailabilityZone": "me-south-1a",
+        "MapPublicIpOnLaunch": false,
+        "Tags": [
+          {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Subnet2Private"
+          },
+          {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Isolated"
+          },
+          {
+            "Key": "Name",
+            "Value": "RmsVpcStack/RMS_VPC/Subnet2PrivateSubnet1"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "RmsVpcStack/RMS_VPC/Subnet2PrivateSubnet1/Subnet"
+      }
+    },
+    "RMSVPCSubnet2PrivateSubnet1RouteTable9EF35DA6": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "RMSVPC1E3921C7"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "RmsVpcStack/RMS_VPC/Subnet2PrivateSubnet1"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "RmsVpcStack/RMS_VPC/Subnet2PrivateSubnet1/RouteTable"
+      }
+    },
+    "RMSVPCSubnet2PrivateSubnet1RouteTableAssociationB5C4BDC8": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "RMSVPCSubnet2PrivateSubnet1RouteTable9EF35DA6"
+        },
+        "SubnetId": {
+          "Ref": "RMSVPCSubnet2PrivateSubnet1Subnet8E6BBBAE"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "RmsVpcStack/RMS_VPC/Subnet2PrivateSubnet1/RouteTableAssociation"
+      }
+    },
+    "RMSVPCSubnet2PrivateSubnet2SubnetE31E57BC": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "10.0.3.0/24",
+        "VpcId": {
+          "Ref": "RMSVPC1E3921C7"
+        },
+        "AvailabilityZone": "me-south-1b",
+        "MapPublicIpOnLaunch": false,
+        "Tags": [
+          {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Subnet2Private"
+          },
+          {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Isolated"
+          },
+          {
+            "Key": "Name",
+            "Value": "RmsVpcStack/RMS_VPC/Subnet2PrivateSubnet2"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "RmsVpcStack/RMS_VPC/Subnet2PrivateSubnet2/Subnet"
+      }
+    },
+    "RMSVPCSubnet2PrivateSubnet2RouteTable6931C23C": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "RMSVPC1E3921C7"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "RmsVpcStack/RMS_VPC/Subnet2PrivateSubnet2"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "RmsVpcStack/RMS_VPC/Subnet2PrivateSubnet2/RouteTable"
+      }
+    },
+    "RMSVPCSubnet2PrivateSubnet2RouteTableAssociationAE176F34": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "RMSVPCSubnet2PrivateSubnet2RouteTable6931C23C"
+        },
+        "SubnetId": {
+          "Ref": "RMSVPCSubnet2PrivateSubnet2SubnetE31E57BC"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "RmsVpcStack/RMS_VPC/Subnet2PrivateSubnet2/RouteTableAssociation"
+      }
+    },
+    "RMSVPCIGW85CAD98E": {
+      "Type": "AWS::EC2::InternetGateway",
+      "Properties": {
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "rms-prod-vpc"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "RmsVpcStack/RMS_VPC/IGW"
+      }
+    },
+    "RMSVPCVPCGWEA4B4A54": {
+      "Type": "AWS::EC2::VPCGatewayAttachment",
+      "Properties": {
+        "VpcId": {
+          "Ref": "RMSVPC1E3921C7"
+        },
+        "InternetGatewayId": {
+          "Ref": "RMSVPCIGW85CAD98E"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "RmsVpcStack/RMS_VPC/VPCGW"
+      }
+    },
+    "CDKMetadata": {
+      "Type": "AWS::CDK::Metadata",
+      "Properties": {
+        "Analytics": "v2:deflate64:H4sIAAAAAAAA/0WOQQ6CMBBFz8K+VEAT14SFcdeAYWvaOoYqtKadSgjh7lZFu5o3L5P5v6D5nmYJH10qL/e0V4LODXJ5J0GdQRZ0bh+SVFfdsoowL3olGy804NtFqo1HOHHRQ/TRlc4ZqTgqo//HhFn15Ajxx1Ej2MCHYEc+raHrVmJo1Q2gcSE1OOOt/ET9eCFsws7ozZbmGd0lN6dUar1GNQCtv/MFxASf7O0AAAA="
+      },
+      "Metadata": {
+        "aws:cdk:path": "RmsVpcStack/CDKMetadata/Default"
+      }
+    }
+  },
+  "Parameters": {
+    "BootstrapVersion": {
+      "Type": "AWS::SSM::Parameter::Value<String>",
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+    }
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5"
+                  ],
+                  {
+                    "Ref": "BootstrapVersion"
+                  }
+                ]
+              }
+            ]
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+        }
+      ]
+    }
+  }
+}

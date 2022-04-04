@@ -1,0 +1,20 @@
+{
+  "version": "16.0.0",
+  "files": {
+    "0aafd7dd66d34ce44f0fe5a0b07acb1858a870d079f51cfabf005f99c9565ffa": {
+      "source": {
+        "path": "RmsVpcStack.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "620228650709-me-south-1": {
+          "bucketName": "cdk-hnb659fds-assets-620228650709-me-south-1",
+          "objectKey": "0aafd7dd66d34ce44f0fe5a0b07acb1858a870d079f51cfabf005f99c9565ffa.json",
+          "region": "me-south-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::620228650709:role/cdk-hnb659fds-file-publishing-role-620228650709-me-south-1"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}
